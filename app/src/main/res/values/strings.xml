@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">ဟာသ ပေဒသာ</string>
+    <string name="app_name_eng">HaTha Pataythar</string>
     <string name="action_settings">Settings</string>
 
-    <string name="joke1_title">အညီအမၽွှ</string>
+    <string name="joke1_title">အညီအမၽွ</string>
     <string name="joke1_body">ေနာက္တစ္ႏွစ္ေပါ့\n လင္မယား ၂ ေယာက္စကားမ်ားရန္ျဖစ္ရာမွကြာရွင္းျပတ္ဆဲရန္ တရား႐ုံးတြင္စီစဥ္ေနၾကသည္\nတရားသူႀကီး : မင္းတို႔မွာကေလး ၃ ေယာက္ရွိတာဘယ္လိုခြဲမလဲ?\nလင္မယား ၂ ေယာက္ေတြေဝသြားၿပီးမိနစ္အနည္းငယ္ၾကာစဥ္းစားကာ \'တရားသူႀကီးမင္းခင္ဗ်ား က်ေနာ္တို႔တစ္ႏွစ္တာအခ်ိန္အတြင္း ေနာက္တစ္ေယာက္ထပ္ေမြးၿပီးျပန္လာခဲ့ပါ့မယ္\' ဟုေျပာလိုက္သည္။\n ၉ လခန႔္ၾကာေသာ္ အႁမႊာပူးေလးေမြးေလသည္။</string>
 
     <string name="joke2_title">အလၽွင္မလိုပါ</string>

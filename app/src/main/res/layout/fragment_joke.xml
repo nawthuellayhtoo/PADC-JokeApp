@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium"
-                android:text="@String/radio_button1" />
+                android:text="@string/radio_button1" />
 
             <com.example.android.hatha_pataythar.components.radiobuttons.MMRadioButton
                 android:id="@+id/rb_funny"
