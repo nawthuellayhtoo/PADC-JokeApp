@@ -8,12 +8,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.android.hatha_pataythar.R;
-import com.example.android.hatha_pataythar.fragments.Joke1Fragment;
+import com.example.android.hatha_pataythar.fragments.JokeFragment;
+import com.example.android.hatha_pataythar.utils.JokeTellerConstants;
 
 public class MainActivity extends AppCompatActivity {
+    private int jokeIndex = -1;
 
+    private FrameLayout flContainer;
+    private Button btnNextJoke;
+    private Button btnPreviousJoke;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +37,49 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-            Joke1Fragment fragment = new Joke1Fragment();
-            //that can be used old android version
-            getSupportFragmentManager()
-                    .beginTransaction()
+        flContainer = (FrameLayout) findViewById(R.id.fl_container);
+        if (savedInstanceState == null) {
+            jokeIndex++;
+            JokeFragment fragment = JokeFragment.newInstance(jokeIndex);
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fl_container, fragment)
                     .commit();
+
+        }
+        btnNextJoke = (Button) findViewById(R.id.btn_next_joke);
+        btnNextJoke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jokeIndex++;
+                if (jokeIndex < JokeTellerConstants.TOTAL_JOKES) {
+                    JokeFragment fragment = JokeFragment.newInstance(jokeIndex);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fl_container, fragment)
+                            .commit();
+
+                } else {
+                    jokeIndex = JokeTellerConstants.TOTAL_JOKES - 1;
+                    Toast.makeText(getApplicationContext(), R.string.msg_no_more_joke, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnPreviousJoke = (Button) findViewById(R.id.btn_previous_joke);
+        btnPreviousJoke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                jokeIndex--;
+                if (jokeIndex >= 0) {
+                    JokeFragment fragment = JokeFragment.newInstance(jokeIndex);
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fl_container, fragment)
+                            .commit();
+                } else {
+                    jokeIndex = 0;
+                    Toast.makeText(getApplicationContext(), R.string.msg_no_more_joke, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         }
 
     @Override
